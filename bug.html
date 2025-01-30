@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Incorrectly using innerHTML on a non-existent element
+    document.getElementById('nonExistentElement').innerHTML = "This text will cause an error!";
+    // Correct way to add content when not sure of element existance
+    const myDiv = document.getElementById('myDiv');
+    if(myDiv){
+      myDiv.innerHTML += "<br>This text is added safely.";
+    }
+  </script>
+</body>
+</html>
